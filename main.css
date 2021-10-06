@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+:root {
+  --typewriterSpeed: 5s;
+  --CharLength: 25;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: azure;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.main-tittle {
+  position: relative;
+  font-family: "Source Code Pro", monospace;
+  font-size: 3rem;
+  /* width: max-content; */
+}
+
+.main-tittle::before,
+.main-tittle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.main-tittle::before {
+  background-color: azure;
+  animation: typewriter var(--typewriterSpeed) steps(var(--CharLength)) forwards;
+}
+
+.main-tittle::after {
+  content: "";
+  width: 2px;
+  height: 90%;
+  background-color: black;
+  animation: typewriter var(--typewriterSpeed) steps(var(--CharLength)) forwards,
+    blink 500ms steps(var(--CharLength)) infinite;
+}
+
+.h-disc {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 3.5rem;
+  transform: translateY(70px);
+  opacity: 0;
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 300ms) forwards;
+}
+
+@media (max-width: 780px) {
+  .main-tittle {
+    font-size: 2.5rem;
+  }
+  .h-disc {
+    font-size: 1.7rem;
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .main-tittle {
+    font-size: 2rem;
+  }
+  .h-disc {
+    font-size: 1.5rem;
+    margin-top: 2.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-tittle {
+    font-size: 1.4rem;
+  }
+  .h-disc {
+    font-size: 1.1rem;
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-tittle {
+    font-size: 1.05rem;
+  }
+  .h-disc {
+    font-size: 0.9rem;
+    margin-top: 2.05rem;
+  }
+}
+
+/*Animations*/
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
